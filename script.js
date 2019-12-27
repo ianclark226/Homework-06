@@ -1,3 +1,4 @@
+debugger
 $(document).ready(function(){
     $('#submitWeather').click(function(){
 
@@ -7,17 +8,18 @@ $(document).ready(function(){
 
             $.ajax({
 
-                url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric" + "APPID=c10bb3bd22f90d636baa008b1529ee25",
+                url: 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "&APPID=49034a6efdfe8d07c20b64468ee472fe",
                 type: "GET",
                 dataType: "jsonp",
-                sucess: function(data) {
+                success: function(data) {
                     var widget = show(data);
+                    console.log(data);
 
                     $("#show").html(widget);
 
                     $("#city").val('');
                 }
-            })
+            });
 
         }else{
             $("#error").html("<div class='alert alert-danger' id='errorCity><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Field cannot be empty</div>");
