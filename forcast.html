@@ -23,13 +23,32 @@
 
 <div class="row form-group form-inline" id="rowDiv">
     <input type="text" name="city" id="city" class="form-control" placeholder="City Name">
-   
-    <button id="submitWeather" class="btn btn-primarty">Search City</button>
+    <input type="text" name="days" id="days" class="form-control" placeholder="Numbers: 1-5">
+    <button id="submitWeather" class="btn btn-primarty">Search Forcast</button>
     
 </div>
 
 <div id="show"></div>
 
+</div>
+
+<div class="row">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Icon</th>
+                <th>Weather</th>
+                <th>Description</th>
+                <th>Morning Temperature</th>
+                <th>Night temperature</th>
+                <th>Min. Temperature</th>
+            </tr>
+        </thead>
+
+        <tbody id="forcastWeather">
+            
+        </tbody>
+    </table>
 </div>
 
 <div class="footer">
