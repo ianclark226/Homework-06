@@ -33,7 +33,7 @@ $(document).ready(function(){
 function show(data){
     return "<h3 style='font-size:40px; font-weight: bold;'>Current Weather for " +data.name + ", " + data.sys.country +"</h2>" +
     "<h3 style='padding-left:40px;'><strong>Weather</strong>: "+ data.weather[0].main +"</h3>" +
-    "<h3 style='padding-left:40px;'><strong>Description</strong>: <img src='http://openweathermap.org/img/wn/10d@2x "+ data.weather[0].icon +".png'>"+ data.weather[0].description+ "</h3>" +
+    "<h3 style='padding-left:40px;'><strong>Description</strong>: <img src='http://openweathermap.org/img/wn/ "+ data.weather[0].icon +".png'>"+ data.weather[0].description+ "</h3>" +
     "<h3 style='padding-left:40px;'><strong>Temperature</strong>: " + data.main.temp + "&deg;F</h3>" +
     "<h3 style='padding-left:40px;'><strong>Pressure</strong>: " + data.main.pressure + "hPa</h3>" +
     "<h3 style='padding-left:40px;'><strong>Humidity</strong>: " + data.main.humidity + "%</h3>" +

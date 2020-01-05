@@ -1,11 +1,12 @@
 $(document).ready(function() {
-    $("#submitForecast").click(function() {
-return getForcast();
+    $('#submitForecast').click(function() {
+        return getForecast();
+
     });
 
 });
 
-function getForcast() {
+function getForecast() {
     var city = $("#city").val();
     var days = $("#days").val();
 
@@ -13,6 +14,36 @@ function getForcast() {
 
         $.ajax({
             url: 'api.openweathermap.org/data/2.5/forecast?q=' + city + "&units=imperial" + days + "&APPID=49034a6efdfe8d07c20b64468ee472fe",
+            type: "GET",
+            dataType: "jsonp",
+            success: function(data) {
+
+                var table = '';
+
+                for(var i =0; i < data.list.length; i++){
+                    table += "<tr>";
+
+                    table += "<td>" + data.list[i].weather[0].icon + "</td>";
+                    table += "<td>" + data.list[i].weather[0].main + "</td>";
+                    table += "<td>" + data.list[i].weather[0].description + "</td>";
+                    table += "<td>" + data.list[i].temp.morn + "&deg;F</td>";
+                    table += "<td>" + data.list[i].temp.night + "&deg;F</td>";
+                    table += "<td>" + data.list[i].temp.min + "&deg;F</td>";
+                    table += "<td>" + data.list[i].temp.max + "&deg;F</td>";
+                    table += "<td>" + data.list[i].pressure + "hpa</td>";
+                    table += "<td>" + data.list[i].humidity + "%</td>";
+                    table += "<td>" + data.list[i].speed + "m/s</td>";
+                    table += "<td>" + data.list[i].deg + "&deg;F</td>";
+                    
+
+                    table += "</tr>";
+                }
+
+                $("#forecastWeather").html(table);
+
+                $("#city").val('');
+                $("#days").val('')
+            }
         
         });
 
