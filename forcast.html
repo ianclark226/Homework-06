@@ -12,6 +12,30 @@
 </head>
 <body>
 
+    <nav class="navbar navbar-default" id="nav_bar">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand navbar-link weather">
+
+                </a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navcol">
+                <ul class="nav navbar-nav navbar-right" id="nav_list">
+                    <li><a href= "index.html"> Current</a></li>
+                    <li><a href= "forcast.html"> Forecast</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="jumbotron" style="margin-bottom:0px; color:white; background-color: #4aa1f3;">
     <h2 class="text-center" style="font-size:50px; font-weight: 600;">Get 1-5 Day Forecast</h2>
 </div>
@@ -41,8 +65,7 @@
                 <th>Icon</th>
                 <th>Weather</th>
                 <th>Description</th>
-                <th>Morning Temperature</th>
-                <th>Night temperature</th>
+                
                 <th>Min. Temperature</th>
                 <th>Max. Temperature</th>
                 <th>Pressure</th>
@@ -67,6 +90,7 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <script src="script.js"></script>
 <script src="forcast.js"></script>
