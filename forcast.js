@@ -13,7 +13,7 @@ function getForecast() {
     if(city != "" && days != '') {
 
         $.ajax({
-            url: 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + "&units=imperial" + days + "&APPID=49034a6efdfe8d07c20b64468ee472fe",
+            url: 'http://api.openweathermap.org/data/2.5/forecast/?q=' + city + "&units=imperial" + "&cnt=" + days + "&APPID=49034a6efdfe8d07c20b64468ee472fe",
             type: "GET",
             dataType: "jsonp",
             success: function(data) {
@@ -24,6 +24,8 @@ function getForecast() {
                 for(var i =0; i < data.list.length; i++){
                     table += "<tr>";
 
+                    table += "<td> <img src='http://openweathermap.org/img/w/"+data.list[i].weather[0].icon+".png'</td>"
+                    
                     table += "<td>" + data.list[i].weather[0].icon + "</td>";
                     table += "<td>" + data.list[i].weather[0].main + "</td>";
                     table += "<td>" + data.list[i].weather[0].description + "</td>";

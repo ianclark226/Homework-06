@@ -16,7 +16,7 @@ $(document).ready(function(){
                     var widget = show(data);
                     console.log(data);
                  
-
+                  
                     $("#show").html(widget);
 
                     $("#city").val('');
@@ -30,10 +30,12 @@ $(document).ready(function(){
     });
 });
 
+f
+
 function show(data){
     return "<h3 style='font-size:40px; font-weight: bold;'>Current Weather for " +data.name + ", " + data.sys.country +"</h2>" +
     "<h3 style='padding-left:40px;'><strong>Weather</strong>: "+ data.weather[0].main +"</h3>" +
-    "<h3 style='padding-left:40px;'><strong>Description</strong>: <img src='http://openweathermap.org/img/wn/ "+ data.weather[0].icon +".png'>"+ data.weather[0].description+ "</h3>" +
+    "<h3 style='padding-left:40px;'><strong>Description</strong>: <img src='http://openweathermap.org/img/w/ "+ data.weather[0].icon +".png'>"+ data.weather[0].description+ "</h3>" +
     "<h3 style='padding-left:40px;'><strong>Temperature</strong>: " + data.main.temp + "&deg;F</h3>" +
     "<h3 style='padding-left:40px;'><strong>Pressure</strong>: " + data.main.pressure + "hPa</h3>" +
     "<h3 style='padding-left:40px;'><strong>Humidity</strong>: " + data.main.humidity + "%</h3>" +
@@ -43,3 +45,14 @@ function show(data){
     "<h3 style='padding-left:40px;'><strong>Wind-Direction</strong>: " + data.wind.deg + "&deg;</h3>" +
     "<h3 style='padding-left:40px;'><strong>UV-Index</strong>: " + data.main.uv + "&deg;</h3>";
 }
+
+function storeItem(city) {
+    var cities;
+    if (localStorage.getItem("cities") === null) {
+      cities = [];
+    } else {
+      cities = JSON.parse(localStorage.getItem("cities"));
+    };
+}
+
+
