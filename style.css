@@ -15,6 +15,12 @@ input[type="text"]{
     font-weight: bold;
 }
 
+#submitForecast{
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold; 
+}
+
 #show{
     margin: auto;
     width: 70%;
@@ -23,10 +29,17 @@ input[type="text"]{
 }
 
 .footer{
-    background-color: #4aa1f3;
+    background-color: aquamarine;
     width: 100%;
     height: 80px;
-    text-align: center;
+    text-align: right;
+}
+
+.footer2{
+    background-color: aquamarine;
+    width: 100%;
+    height: 80px;
+text-align: center;
 }
 
 #errorCity{
@@ -42,6 +55,8 @@ input[type="text"]{
     color: white;
     border-radius: 25px;
 }
+
+
 
 table{
     color: #333333;
@@ -60,3 +75,10 @@ td{
     text-align: center;
     font-size: 18px;
 }
+a{
+    font-size: 20px;
+    
+}
+
+
+
