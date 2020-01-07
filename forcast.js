@@ -19,21 +19,25 @@ function getForecast() {
             success: function(data) {
                 console.log(data);
 
+                
+
                 var table = '';
+
+                var header = 'h2 style="font-weight:bold; font-size 30px;"Weather forecast for ' + data.city.name + ',' + data.city.country + '</h2>'
 
                 for(var i =0; i < data.list.length; i++){
                     table += "<tr>";
 
                     table += "<td> <img src='http://openweathermap.org/img/w/"+data.list[i].weather[0].icon+".png'</td>"
                     
-                    table += "<td>" + data.list[i].weather[0].icon + "</td>";
+                   // table += "<td>" + data.list[i].weather[0].icon + "</td>";
                     table += "<td>" + data.list[i].weather[0].main + "</td>";
                     table += "<td>" + data.list[i].weather[0].description + "</td>";
                   
-                     table += "<td>" + data.list[i].temp_min + "&deg;F</td>";
+                     //table += "<td>" + data.list[i].temp.min + "&deg;C</td>";
                     //  table += "<td>" + data.list[i].temp.max + "&deg;F</td>";
                     //  table += "<td>" + data.list[i].pressure + "hpa</td>";
-                    //  table += "<td>" + data.list[i].humidity + "%</td>";
+                      table += "<td>" + data.list[i].humidity + "%</td>";
                     //  table += "<td>" + data.list[i].speed + "m/s</td>";
                     //  table += "<td>" + data.list[i].deg + "&deg;F</td>";
                     
@@ -48,6 +52,8 @@ function getForecast() {
             }
         
         });
+
+        
 
     }else{
         $("#error").html("<div class='alert alert-danger' id='errorCity><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Field cannot be empty</div>");

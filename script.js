@@ -15,6 +15,8 @@ $(document).ready(function(){
                 success: function(data) {
                     var widget = show(data);
                     console.log(data);
+
+               
                  
                   
                     $("#show").html(widget);
@@ -30,7 +32,18 @@ $(document).ready(function(){
     });
 });
 
-f
+$.ajax({
+
+    url: 'http://api.openweathermap.org/data/2.5/uvi/history?lat=37.75&lon=-122.37&start=1498049953&end=1498481991' + city + "&units=imperial" + "&APPID=49034a6efdfe8d07c20b64468ee472fe",
+    type: "GET",
+    dataType: "jsonp",
+    success: function(data) {
+        var widget = show(data);
+        console.log(data);
+    }
+
+    });
+
 
 function show(data){
     return "<h3 style='font-size:40px; font-weight: bold;'>Current Weather for " +data.name + ", " + data.sys.country +"</h2>" +
@@ -55,4 +68,5 @@ function storeItem(city) {
     };
 }
 
+    
 
