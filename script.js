@@ -1,4 +1,4 @@
-debugger
+
 $(document).ready(function(){
     $('#submitWeather').click(function(){
       
@@ -17,7 +17,7 @@ $(document).ready(function(){
                 dataType: "jsonp",
                 success: function(data) {
                     var widget = show(data);
-                    console.log(data);
+                    
                     lat = data.coord.lat
                     lon = data.coord.lon
                     
@@ -32,8 +32,7 @@ $(document).ready(function(){
                 type: "GET",
                 dataType: "json",
                 success: function(data) {
-                    console.log(lat)
-                    console.log(data)
+                    
                     $("#show").append("<h3 style='padding-left:40px;'><strong>UV-Index</strong>: " + data.value + "</h3>");
             
                     $("#city").val('');

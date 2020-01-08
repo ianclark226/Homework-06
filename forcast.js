@@ -17,7 +17,7 @@ function getForecast() {
             type: "GET",
             dataType: "jsonp",
             success: function(data) {
-                console.log(data);
+                
 
                 
 
@@ -40,7 +40,7 @@ function getForecast() {
                       table += "<td>" + data.list[i].main.humidity + "%</td>";
                       table += "<td>" + data.list[i].wind.speed + "m/s</td>";
                      table += "<td>" + data.list[i].wind.deg + "&deg;</td>";
-                    console.log(data);
+                    
 
                     table += "</tr>";
                 }
