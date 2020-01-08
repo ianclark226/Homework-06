@@ -7,6 +7,9 @@ $(document).ready(function(){
         
         if(city != '' && days !=''){
 
+            var lat = ""
+            var lon = ""
+
             $.ajax({
 
                 url: 'http://api.openweathermap.org/data/2.5/weather?q=' + city + "&units=imperial" + "&APPID=49034a6efdfe8d07c20b64468ee472fe",
@@ -15,16 +18,28 @@ $(document).ready(function(){
                 success: function(data) {
                     var widget = show(data);
                     console.log(data);
+                    lat = data.coord.lat
+                    lon = data.coord.lon
+                    
 
-               
-                 
-                  
                     $("#show").html(widget);
 
                     $("#city").val('');
                     $("#days").val('');
                 }
-            });
+            }).then(function() {$.ajax({
+                url: 'http://api.openweathermap.org/data/2.5/uvi?lat=' + lat + '&lon=' + lon + "&units=imperial" + "&APPID=49034a6efdfe8d07c20b64468ee472fe",
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    console.log(lat)
+                    console.log(data)
+                    $("#show").append("<h3 style='padding-left:40px;'><strong>UV-Index</strong>: " + data.value + "</h3>");
+            
+                    $("#city").val('');
+                    $("#days").val('');
+                },
+            })})
         
 
         }else{
@@ -42,7 +57,6 @@ $(document).ready(function(){
 function show(data){
 
    
-    
     return "<h3 style='font-size:40px; font-weight: bold;'>Current Weather for " +data.name + ", " + data.sys.country +"</h2>" +
     "<h3 style='padding-left:40px;'><strong>Weather</strong>: "+ data.weather[0].main +"</h3>" +
     "<h3 style='padding-left:40px;'><strong>Description</strong>: <img src='http://openweathermap.org/img/w/"+ data.weather[0].icon +".png'>"+ data.weather[0].description+ "</h3>" +
@@ -53,8 +67,7 @@ function show(data){
     "<h3 style='padding-left:40px;'><strong>Min. Temperature</strong>: " + data.main.temp_min + "&deg;F</h3>" +
     "<h3 style='padding-left:40px;'><strong>Max. Temperature</strong>: " + data.main.temp_max + "&deg;F</h3>" +
     "<h3 style='padding-left:40px;'><strong>Wind Speed</strong>: " + data.wind.speed + "m/s</h3>" +
-    "<h3 style='padding-left:40px;'><strong>Wind-Direction</strong>: " + data.wind.deg + "&deg;</h3>" +
-    "<h3 style='padding-left:40px;'><strong>UV-Index</strong>: " + data.main.uv + "&deg;</h3>";
+    "<h3 style='padding-left:40px;'><strong>Wind-Direction</strong>: " + data.wind.deg + "&deg;</h3>";
 
 
 }

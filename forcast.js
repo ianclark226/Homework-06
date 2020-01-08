@@ -34,13 +34,13 @@ function getForecast() {
                     table += "<td>" + data.list[i].weather[0].main + "</td>";
                     table += "<td>" + data.list[i].weather[0].description + "</td>";
                   
-                     //table += "<td>" + data.list[i].temp.min + "&deg;C</td>";
-                    //  table += "<td>" + data.list[i].temp.max + "&deg;F</td>";
-                    //  table += "<td>" + data.list[i].pressure + "hpa</td>";
-                      table += "<td>" + data.list[i].humidity + "%</td>";
-                    //  table += "<td>" + data.list[i].speed + "m/s</td>";
-                    //  table += "<td>" + data.list[i].deg + "&deg;F</td>";
-                    
+                     table += "<td>" + data.list[i].main.temp_min + "&deg;F</td>";
+                     table += "<td>" + data.list[i].main.temp_max + "&deg;F</td>";
+                     table += "<td>" + data.list[i].main.pressure + "hpa</td>";
+                      table += "<td>" + data.list[i].main.humidity + "%</td>";
+                      table += "<td>" + data.list[i].wind.speed + "m/s</td>";
+                     table += "<td>" + data.list[i].wind.deg + "&deg;</td>";
+                    console.log(data);
 
                     table += "</tr>";
                 }
@@ -59,3 +59,5 @@ function getForecast() {
         $("#error").html("<div class='alert alert-danger' id='errorCity><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Field cannot be empty</div>");
     }
 }
+
+
