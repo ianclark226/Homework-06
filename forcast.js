@@ -17,6 +17,27 @@ function getForecast() {
             type: "GET",
             dataType: "jsonp",
             success: function(data) {
+
+                var getHistory = localStorage.getItem("search results");
+
+                if (getHistory) {
+                    city = getHistory.split(",");
+                    renderButtons();
+                }
+
+                $("#clear-history").click(function() {
+                    localStorage.clear();
+                    city = [];
+                    $("button.city-name").remove();
+                });
+
+                function renderButtons() {
+
+                    var history = localStorage.getItem("search results") || 0;
+                    localStorage.setItem("search results", city);
+
+                    $("#recent-search").append(a);
+                }
                 
 
                 
